@@ -33,7 +33,7 @@ map("n", "gf", "<cmd>Lspsaga finder<CR>")
 map("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>")
 map("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
 
-map("n", "<leader>xx", "<cmd>Lspsaga show_workspace_diagnostics<CR>")
+map("n", "<leader>xa", "<cmd>Lspsaga show_workspace_diagnostics<CR>")
 map("n", "<leader>xb", "<cmd>Lspsaga show_buf_diagnostics<CR>")
 map("n", "<leader>xc", "<cmd>Lspsaga show_cursor_diagnostics<CR>")
 
@@ -64,9 +64,13 @@ map("v", "yp", "y']p", { desc = "copy and paste below" })
 
 -- Todo plugin mappings
 map("n", "]t", function()
-  require("todo-comments").jump_next()
-end)
+	require("todo-comments").jump_next()
+end, { desc = "Next todo comment" })
+
 map("n", "[t", function()
-  require("todo-comments").jump_prev()
-end)
+	require("todo-comments").jump_prev()
+end, { desc = "Previous todo comment" })
+
 map("n", "<leader>ft", "<cmd> TodoTelescope<CR>")
+
+map("n", "<leader>tt", "<cmd> Trouble todo<CR>", { noremap = true, silent = true })
