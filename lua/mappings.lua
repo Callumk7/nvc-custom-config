@@ -53,7 +53,7 @@ map("n", "<leader><leader>q", close_all_buffers)
 --term
 map({ "n", "t" }, "<leader>I", function()
 	require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
-end, { desc = "Terminal Toggle Floating term" })
+end, { desc = "Terminal Toggle Floating term", nowait = true })
 
 -- Move highlighted lines
 map("v", "J", ":m '>+1<CR>gv=gv")

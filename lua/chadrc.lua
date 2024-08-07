@@ -1,4 +1,4 @@
--- This file needs to have same structure as nvconfig.lua 
+-- This file needs to have same structure as nvconfig.lua
 -- https://github.com/NvChad/ui/blob/v2.5/lua/nvconfig.lua
 
 ---@type ChadrcConfig
@@ -10,11 +10,14 @@ M.ui = {
 	hl_override = {
 		Comment = { italic = true },
 		["@comment"] = { italic = true },
+		["@keyword.function"] = { bold = true },
+		["@keyword.return"] = { bold = true },
+		["@keyword"] = { italic = true },
 	},
 
-  telescope = {
-    style = "bordered"
-  }
+	telescope = {
+		style = "bordered",
+	},
 }
 
 return M

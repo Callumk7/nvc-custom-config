@@ -1,7 +1,9 @@
 require "nvchad.options"
 
 local autocmd = vim.api.nvim_create_autocmd
+local usrcmd = vim.api.nvim_create_user_command
 local opt = vim.opt
+local hl = vim.api.nvim_set_hl
 
 opt.wrap = true
 opt.linebreak = true
@@ -33,3 +35,14 @@ vim.api.nvim_create_autocmd("VimEnter", {
 
 --snippets
 require("luasnip.loaders.from_vscode").lazy_load { paths = "~/.config/nvim/snippets" }
+
+-- highlight customisations
+
+-- TS utility
+usrcmd("TSHighlightCapturesUnderCursor", function()
+	local result = vim.treesitter.get_captures_at_cursor(0)
+	print(vim.inspect(result))
+end, {})
+
+-- highlights
+hl(0, "FlashLabel", { fg = "#0f0f14", bg = "#ff9e64" })
