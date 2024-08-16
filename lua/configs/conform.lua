@@ -16,7 +16,6 @@ local options = {
 		css = { "prettierd" },
 		html = { { "biome", "prettierd" } },
 		astro = { "prettierd" },
-		markdown = { "prettierd" },
 		json = { { "biome", "prettierd" } },
 		rust = { "rustfmt" },
 		go = { "gofmt" },

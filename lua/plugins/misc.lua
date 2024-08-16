@@ -58,15 +58,15 @@ return {
 	{
 		"folke/flash.nvim",
 		event = "VeryLazy",
-        opts = {
-            char = {
-                keys = { "f", "F", "t", "T", ";", "," },
-            },
-            highlight = {
-                backdrop = false,
-                matches = true
-            }
-        },
+		opts = {
+			char = {
+				keys = { "f", "F", "t", "T", ";", "," },
+			},
+			highlight = {
+				backdrop = false,
+				matches = true,
+			},
+		},
 		keys = {
 			{
 				"<leader>s",

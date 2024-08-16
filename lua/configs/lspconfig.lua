@@ -15,6 +15,7 @@ local servers = {
 	"volar",
 	"svelte",
 	"marksman",
+    "markdown_oxide",
 	"taplo",
 	"ruby_lsp",
 }
