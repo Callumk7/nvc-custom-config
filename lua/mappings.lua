@@ -8,6 +8,9 @@ map("n", "<leader>Q", ":q<CR>", { desc = "command close" })
 map("n", "<leader>hc", ":nohl<CR>", { desc = "clear highlights" })
 map("n", "<leader>O", ":normal o<CR>", { desc = "insert line" })
 
+-- tabs
+map("n", "<leader>tn", ":tabnew<CR>")
+
 -- ui
 map("n", "<leader><leader>t", function()
 	require("base46").toggle_transparency()
