@@ -88,3 +88,8 @@ map("n", "<leader>tb", "<cmd>Gitsigns toggle_current_line_blame<CR>")
 map("n", "<leader>hd", "<cmd>Gitsigns diffthis<CR>")
 map("n", "<leader>hD", '<cmd>lua require"gitsigns".diffthis("~")<CR>')
 map("n", "<leader>td", "<cmd>Gitsigns toggle_deleted<CR>")
+
+-- arrow mappings
+vim.keymap.set("n", "H", require("arrow.persist").previous)
+vim.keymap.set("n", "L", require("arrow.persist").next)
+vim.keymap.set("n", "<C-s>", require("arrow.persist").toggle)
