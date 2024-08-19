@@ -40,6 +40,10 @@ map("n", "<leader>xa", "<cmd>Lspsaga show_workspace_diagnostics<CR>")
 map("n", "<leader>xb", "<cmd>Lspsaga show_buf_diagnostics<CR>")
 map("n", "<leader>xc", "<cmd>Lspsaga show_cursor_diagnostics<CR>")
 
+map("n", "<leader>o", "<cmd>Lspsaga outline<CR>")
+map("n", "<leader>ci", "<cmd>Lspsaga incoming_calls<CR>")
+map("n", "<leader>co", "<cmd>Lspsaga outgoing_calls<CR>")
+
 map("n", "<leader>rr", "<cmd>Lspsaga rename<CR>")
 map("n", "K", "<cmd>Lspsaga hover_doc<CR>")
 
