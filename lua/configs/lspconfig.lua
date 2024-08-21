@@ -8,6 +8,7 @@ local servers = {
 	"html",
 	"cssls",
 	"bashls",
+    "elixerls",
 	"astro",
 	"eslint",
 	"jsonls",
