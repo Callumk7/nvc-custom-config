@@ -21,6 +21,7 @@ local options = {
 		go = { "gofmt" },
 		sh = { "shfmt" },
 		ruby = { "rubyfmt" },
+		gleam = { "gleam" },
 	},
 
 	-- format_on_save = {

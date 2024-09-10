@@ -8,15 +8,15 @@ local servers = {
 	"html",
 	"cssls",
 	"bashls",
-    "elixerls",
 	"astro",
 	"eslint",
 	"jsonls",
 	"gopls",
+    "gleam",
 	"volar",
 	"svelte",
 	"marksman",
-    "markdown_oxide",
+	"markdown_oxide",
 	"taplo",
 	"ruby_lsp",
 }
@@ -69,16 +69,16 @@ lspconfig.tailwindcss.setup {
 }
 
 lspconfig.biome.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  root_dir = root_pattern "biome.json",
-  single_file_support = false,
+	on_attach = on_attach,
+	capabilities = capabilities,
+	root_dir = root_pattern "biome.json",
+	single_file_support = false,
 }
 
 -- Deno should only trigger with deno root file
 lspconfig.denols.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  root_dir = root_pattern "deno.json",
-  single_file_support = false,
+	on_attach = on_attach,
+	capabilities = capabilities,
+	root_dir = root_pattern "deno.json",
+	single_file_support = false,
 }
