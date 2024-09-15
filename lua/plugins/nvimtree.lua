@@ -50,7 +50,7 @@ return {
     },
     renderer = {
       root_folder_label = false,
-      highlight_git = "all",
+      highlight_git = "name",
       highlight_opened_files = "all",
 
       indent_markers = {
