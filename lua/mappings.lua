@@ -94,6 +94,9 @@ map("n", "<leader>hD", '<cmd>lua require"gitsigns".diffthis("~")<CR>')
 map("n", "<leader>td", "<cmd>Gitsigns toggle_deleted<CR>")
 
 -- arrow mappings
-vim.keymap.set("n", "H", require("arrow.persist").previous)
-vim.keymap.set("n", "L", require("arrow.persist").next)
-vim.keymap.set("n", "<C-s>", require("arrow.persist").toggle)
+map("n", "H", require("arrow.persist").previous)
+map("n", "L", require("arrow.persist").next)
+map("n", "<C-s>", require("arrow.persist").toggle)
+
+-- Octo github shortcuts
+map("n", "<leader><leader>gi", "<cmd>Octo issue create<CR>")
