@@ -13,6 +13,7 @@ M.ui = {
 		["@keyword.function"] = { bold = true },
 		["@keyword.return"] = { bold = true },
 		["@keyword"] = { italic = true },
+		["@markup.heading"] = { bold = true },
 	},
 
 	telescope = {
