@@ -51,7 +51,7 @@ return {
     renderer = {
       root_folder_label = false,
       highlight_git = "name",
-      highlight_opened_files = "all",
+      highlight_opened_files = "icon",
 
       indent_markers = {
         enable = true,
