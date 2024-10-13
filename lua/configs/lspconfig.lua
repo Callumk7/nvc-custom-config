@@ -12,14 +12,13 @@ local servers = {
 	"eslint",
 	"jsonls",
 	"gopls",
-    "gleam",
+	"gleam",
 	"volar",
 	"svelte",
 	"marksman",
 	"markdown_oxide",
 	"taplo",
 	"ruby_lsp",
-    "csharp_ls"
 }
 local root_pattern = lspconfig.util.root_pattern
 
@@ -82,4 +81,15 @@ lspconfig.denols.setup {
 	capabilities = capabilities,
 	root_dir = root_pattern "deno.json",
 	single_file_support = false,
+}
+
+lspconfig.omnisharp.setup {
+	capabilities = capabilities,
+	cmd = { "dotnet", vim.fn.stdpath "data" .. "/mason/packages/omnisharp/libexec/OmniSharp.dll" },
+	enable_import_completion = true,
+	organize_imports_on_format = true,
+	enable_roslyn_analyzers = true,
+	root_dir = function()
+		return vim.loop.cwd() -- current working directory
+	end,
 }
