@@ -10,6 +10,11 @@ return {
 						color = "#EF8547",
 						name = "astro",
 					},
+                    gleam = {
+                        icon = "",
+                        color = "#FFAFF3",
+                        name = "gleam"
+                    }
 				},
 			}
 		end,
