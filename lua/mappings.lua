@@ -1,6 +1,7 @@
 require "nvchad.mappings"
 
 local map = vim.keymap.set
+local del = vim.keymap.del
 
 -- shortcuts
 map("i", "jk", "<ESC>", { nowait = true })
@@ -100,3 +101,7 @@ map("n", "<C-s>", require("arrow.persist").toggle)
 
 -- Octo github shortcuts
 map("n", "<leader><leader>gi", "<cmd>Octo issue create<CR>")
+
+-- Remove plugin keymaps etc..
+del("n", "<leader>x")
+del("n", "<leader>h")
