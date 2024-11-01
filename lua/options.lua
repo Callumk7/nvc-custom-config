@@ -44,14 +44,25 @@ usrcmd("TSHighlightCapturesUnderCursor", function()
 	print(vim.inspect(result))
 end, {})
 
+-- auto-remove unused imports when saving a file
+usrcmd("RemoveUnusedImports", function()
+	vim.lsp.buf.code_action {
+		apply = true,
+		context = {
+			only = { "source.removeUnusedImports.ts" },
+			diagnostics = {},
+		},
+	}
+end, {})
+
 -- highlights
 hl(0, "FlashLabel", { fg = "#0f0f14", bg = "#ff9e64" })
 
 -- set markdown highlight for mdx file
 autocmd({ "BufNewFile", "BufRead" }, {
-  pattern = { "*.mdx" },
-  callback = function()
-    local buf = vim.api.nvim_get_current_buf()
-    vim.api.nvim_buf_set_option(buf, "filetype", "markdown")
-  end,
+	pattern = { "*.mdx" },
+	callback = function()
+		local buf = vim.api.nvim_get_current_buf()
+		vim.api.nvim_buf_set_option(buf, "filetype", "markdown")
+	end,
 })
