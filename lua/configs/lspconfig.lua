@@ -81,6 +81,7 @@ lspconfig.denols.setup {
 	capabilities = capabilities,
 	root_dir = root_pattern "deno.json",
 	single_file_support = false,
+    cmd_env = { NO_COLOR = false }
 }
 
 lspconfig.omnisharp.setup {
