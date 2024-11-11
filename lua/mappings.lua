@@ -63,8 +63,11 @@ map({ "n", "t" }, "<leader>I", function()
 	require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
 end, { desc = "Toggle floating terminal", nowait = true })
 map("n", "<leader>H", function()
-  require("nvchad.term").new { pos = "sp" }
+	require("nvchad.term").new { pos = "sp" }
 end, { desc = "terminal new horizontal term" })
+map("n", "<leader>th", function()
+	require("nvchad.themes").open()
+end)
 
 -- Move highlighted lines
 map("v", "J", ":m '>+1<CR>gv=gv")

@@ -36,7 +36,7 @@ for _, lsp in ipairs(servers) do
 end
 
 -- typescript
-lspconfig.tsserver.setup {
+lspconfig.ts_ls.setup {
 	init_options = {
 		plugins = {
 			{
