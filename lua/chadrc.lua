@@ -11,6 +11,7 @@ M.base46 = {
 		["@comment"] = { italic = true },
 		["@keyword.function"] = { bold = true },
 		["@keyword.return"] = { bold = true },
+		["@keyword.conditional"] = { bold = true },
 		["@keyword"] = { italic = true },
 		["@markup.heading"] = { bold = true },
 	},
