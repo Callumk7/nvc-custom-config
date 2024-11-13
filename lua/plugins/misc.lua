@@ -10,11 +10,11 @@ return {
 						color = "#EF8547",
 						name = "astro",
 					},
-                    gleam = {
-                        icon = "",
-                        color = "#FFAFF3",
-                        name = "gleam"
-                    }
+					gleam = {
+						icon = "",
+						color = "#FFAFF3",
+						name = "gleam",
+					},
 				},
 			}
 		end,
@@ -38,10 +38,10 @@ return {
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = {
-            highlight = {
-                multiline = false,
-                after = ""
-            }
+			highlight = {
+				multiline = false,
+				after = "",
+			},
 		},
 		event = "BufEnter",
 	},
@@ -77,4 +77,5 @@ return {
 		end,
 		cmd = "Octo",
 	},
+	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 }

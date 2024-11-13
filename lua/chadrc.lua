@@ -3,9 +3,9 @@
 
 ---@type ChadrcConfig
 local M = {}
-
-M.ui = {
-    theme = "tokyonight",
+M.base46 = {
+	theme = "tokyonight",
+	transparency = true,
 	hl_override = {
 		Comment = { italic = true },
 		["@comment"] = { italic = true },
@@ -14,7 +14,14 @@ M.ui = {
 		["@keyword"] = { italic = true },
 		["@markup.heading"] = { bold = true },
 	},
+}
 
+M.ui = {
+	cmp = {
+		format_colors = {
+			tailwind = true,
+		},
+	},
 	telescope = {
 		style = "bordered",
 	},
