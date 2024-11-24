@@ -13,6 +13,7 @@ local servers = {
 	"jsonls",
 	"gopls",
 	"gleam",
+    "pyright",
 	"volar",
 	"svelte",
 	"marksman",
