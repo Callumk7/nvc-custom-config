@@ -95,3 +95,8 @@ lspconfig.omnisharp.setup {
 		return vim.loop.cwd() -- current working directory
 	end,
 }
+
+-- Deno has some stupid semantic token highlighting built into
+-- the LSP, so we need to lower the priority of that 
+vim.highlight.priorities.semantic_tokens = 95
+
