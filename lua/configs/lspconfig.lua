@@ -13,7 +13,7 @@ local servers = {
 	"jsonls",
 	"gopls",
 	"gleam",
-    "pyright",
+	"pyright",
 	"volar",
 	"svelte",
 	"marksman",
@@ -82,7 +82,7 @@ lspconfig.denols.setup {
 	capabilities = capabilities,
 	root_dir = root_pattern "deno.json",
 	single_file_support = false,
-    cmd_env = { NO_COLOR = false }
+	cmd_env = { NO_COLOR = false },
 }
 
 lspconfig.omnisharp.setup {
@@ -97,6 +97,13 @@ lspconfig.omnisharp.setup {
 }
 
 -- Deno has some stupid semantic token highlighting built into
--- the LSP, so we need to lower the priority of that 
+-- the LSP, so we need to lower the priority of that
 vim.highlight.priorities.semantic_tokens = 95
 
+-- Elixir
+lspconfig.elixirls.setup {
+	on_attach = on_attach,
+	on_init = on_init,
+	capabilities = capabilities,
+	cmd = { "/Users/callumkloos/.local/share/nvim/mason/packages/elixir-ls/language_server.sh" },
+}
