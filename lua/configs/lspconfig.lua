@@ -20,6 +20,7 @@ local servers = {
 	"markdown_oxide",
 	"taplo",
 	"ruby_lsp",
+    "rust_analyzer"
 }
 local root_pattern = lspconfig.util.root_pattern
 

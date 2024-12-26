@@ -78,4 +78,5 @@ return {
 		cmd = "Octo",
 	},
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+	{ "mbbill/undotree", event = "BufEnter" },
 }

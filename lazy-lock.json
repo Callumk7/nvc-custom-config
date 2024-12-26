@@ -32,6 +32,7 @@
   "todo-comments.nvim": { "branch": "main", "commit": "ae0a2afb47cf7395dc400e5dc4e05274bf4fb9e0" },
   "trouble.nvim": { "branch": "main", "commit": "3dc00c0447c016cd43e03054c3d49436a1f2076d" },
   "ui": { "branch": "v3.0", "commit": "c59c5fc078cc22a28604e154552c41705359145b" },
+  "undotree": { "branch": "master", "commit": "78b5241191852ffa9bb5da5ff2ee033160798c3b" },
   "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
   "vim-tmux-navigator": { "branch": "master", "commit": "424b5caa154bff34dc258ee53cec5a8e36cf7ea8" },
   "volt": { "branch": "main", "commit": "1df6698f7e5d19db578063412d12322e53376f5e" },
