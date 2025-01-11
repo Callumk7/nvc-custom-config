@@ -25,10 +25,10 @@ map("n", "<C-f>", "10jzz", { desc = "gentle scroll down" })
 map("n", "<C-y>", "10fzz", { desc = "gentle scroll up" })
 
 -- Tmux Navigate mappings
-map("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>")
-map("n", "<C-l>", "<cmd> TmuxNavigateRight<CR>")
-map("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>")
-map("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>")
+-- map("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>")
+-- map("n", "<C-l>", "<cmd> TmuxNavigateRight<CR>")
+-- map("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>")
+-- map("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>")
 
 --LSP mappings
 map("n", "<leader>gd", "<cmd>Lspsaga peek_definition<CR>")
