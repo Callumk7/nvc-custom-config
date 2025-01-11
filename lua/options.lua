@@ -82,3 +82,26 @@ autocmd("BufReadPost", {
     end
   end,
 })
+
+-- Autlolocking zellij
+local function zellij(mode)
+  vim.schedule(function()
+    if vim.env.ZELLIJ ~= nil then
+      vim.fn.system({ "zellij", "action", "switch-mode", mode })
+    end
+  end)
+end
+
+autocmd({ "FocusGained", "BufEnter" }, {
+  group = vim.api.nvim_create_augroup("zellij_lock", {}),
+  callback = function()
+    zellij("locked")
+  end,
+})
+
+autocmd({ "FocusLost", "VimLeave" }, {
+  group = vim.api.nvim_create_augroup("zellij_normal", {}),
+  callback = function()
+    zellij("normal")
+  end,
+})
