@@ -105,3 +105,9 @@ autocmd({ "FocusLost", "VimLeave" }, {
     zellij("normal")
   end,
 })
+
+autocmd("FileType", {
+	desc = "Automatically Split help Buffers to the right",
+	pattern = "help",
+	command = "wincmd L",
+})
