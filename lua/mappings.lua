@@ -30,6 +30,13 @@ map("n", "<C-y>", "10fzz", { desc = "gentle scroll up" })
 -- map("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>")
 -- map("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>")
 
+-- Telescope
+map("n", "<leader>fW", require("telescope.builtin").resume, {
+	noremap = true,
+	silent = true,
+	desc = "Search Resume",
+})
+
 --LSP mappings
 map("n", "<leader>gd", "<cmd>Lspsaga peek_definition<CR>")
 map("n", "ca", "<cmd>Lspsaga code_action<CR>")
