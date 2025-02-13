@@ -16,11 +16,10 @@ local servers = {
 	"pyright",
 	"volar",
 	"svelte",
-	"marksman",
 	"markdown_oxide",
 	"taplo",
 	"ruby_lsp",
-    "rust_analyzer"
+	"rust_analyzer",
 }
 local root_pattern = lspconfig.util.root_pattern
 
@@ -66,6 +65,7 @@ lspconfig.tailwindcss.setup {
 					{ "tv\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
 				},
 			},
+			includeLanguages = { heex = "html" },
 		},
 	},
 }
@@ -85,6 +85,13 @@ lspconfig.denols.setup {
 	single_file_support = false,
 	cmd_env = { NO_COLOR = false },
 }
+
+-- lspconfig.marksman.setup {
+-- 	on_attach = on_attach,
+-- 	capabilities = capabilities,
+-- 	on_init = on_init,
+-- 	filetypes = { "markdown" },
+-- }
 
 lspconfig.omnisharp.setup {
 	capabilities = capabilities,
