@@ -38,3 +38,5 @@ require('telescope').load_extension('fzf')
 vim.schedule(function()
   require "mappings"
 end)
+
+require "globals"
