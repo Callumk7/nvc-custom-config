@@ -33,6 +33,8 @@ vim.api.nvim_create_autocmd("VimEnter", {
 	end,
 })
 
+opt.showtabline = 0
+
 --snippets
 require("luasnip.loaders.from_vscode").lazy_load { paths = "~/.config/nvim/snippets" }
 
