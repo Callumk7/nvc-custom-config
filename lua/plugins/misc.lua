@@ -95,6 +95,14 @@ return {
 				return vim.fn["codeium#Clear"]()
 			end, { expr = true, silent = true })
 		end,
-        lazy = false
+		lazy = false,
+	},
+	{
+		"nvchad/ui",
+		lazy = false,
+		config = function()
+			require "nvchad"
+			vim.opt.showtabline = 0
+		end,
 	},
 }

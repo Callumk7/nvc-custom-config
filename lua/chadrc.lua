@@ -27,6 +27,7 @@ M.ui = {
 		style = "bordered",
 	},
     tabufline = {
+        enabled = true,
         lazyload = false
     }
 }
