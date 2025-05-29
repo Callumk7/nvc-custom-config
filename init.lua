@@ -40,3 +40,5 @@ vim.schedule(function()
 end)
 
 require "globals"
+
+require "configs.conform"
