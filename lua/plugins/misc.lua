@@ -87,4 +87,8 @@ return {
 			vim.opt.showtabline = 0
 		end,
 	},
+	{
+		"stevearc/dressing.nvim",
+		opts = {},
+	},
 }
