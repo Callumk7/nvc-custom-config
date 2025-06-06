@@ -80,24 +80,6 @@ return {
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	{ "mbbill/undotree", event = "BufEnter" },
 	{
-		"Exafunction/codeium.vim",
-		config = function()
-			vim.keymap.set("i", "<c-c>", function()
-				return vim.fn["codeium#Accept"]()
-			end, { expr = true, silent = true })
-			vim.keymap.set("i", "<c-;>", function()
-				return vim.fn["codeium#CycleCompletions"](1)
-			end, { expr = true, silent = true })
-			vim.keymap.set("i", "<c-,>", function()
-				return vim.fn["codeium#CycleCompletions"](-1)
-			end, { expr = true, silent = true })
-			vim.keymap.set("i", "<c-x>", function()
-				return vim.fn["codeium#Clear"]()
-			end, { expr = true, silent = true })
-		end,
-		lazy = false,
-	},
-	{
 		"nvchad/ui",
 		lazy = false,
 		config = function()
