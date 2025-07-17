@@ -17,7 +17,7 @@ local options = {
 		javascript = { "biome", "prettier", stop_after_first = true },
 		typescript = { "biome", "deno_fmt", "prettier", stop_after_first = true },
 		javascriptreact = { "biome", "prettier", stop_after_first = true },
-		typescriptreact = { "biome", "prettierd", "prettier", stop_after_first = true },
+		typescriptreact = { "biome", "prettier", stop_after_first = true },
 		vue = { "prettier", stop_after_first = true },
 		css = { "biome", "prettier", stop_after_first = true },
 		html = { "biome", "prettier", stop_after_first = true },
