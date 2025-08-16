@@ -23,8 +23,7 @@ local servers = {
 }
 local root_pattern = lspconfig.util.root_pattern
 
-local vue_language_server_path =
-	"/Users/callumkloos/.asdf/installs/nodejs/23.1.0/lib/node_modules/@vue/language-server"
+local vue_language_server_path = "/Users/callumkloos/.asdf/installs/nodejs/23.1.0/lib/node_modules/@vue/language-server"
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do

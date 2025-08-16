@@ -91,4 +91,11 @@ return {
 		"stevearc/dressing.nvim",
 		opts = {},
 	},
+	{
+		"supermaven-inc/supermaven-nvim",
+		config = function()
+			require("supermaven-nvim").setup {}
+		end,
+		event = "BufEnter",
+	},
 }
