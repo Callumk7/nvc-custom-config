@@ -30,6 +30,18 @@ map("n", "<C-y>", "10fzz", { desc = "gentle scroll up" })
 -- map("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>")
 -- map("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>")
 
+map("i", "<A-b>", "<ESC>^i", { desc = "move beginning of line" })
+map("i", "<A-e>", "<End>", { desc = "move end of line" })
+map("i", "<A-h>", "<Left>", { desc = "move left" })
+map("i", "<A-l>", "<Right>", { desc = "move right" })
+map("i", "<A-j>", "<Down>", { desc = "move down" })
+map("i", "<A-k>", "<Up>", { desc = "move up" })
+
+map("n", "<A-h>", "<C-w>h", { desc = "switch window left" })
+map("n", "<A-l>", "<C-w>l", { desc = "switch window right" })
+map("n", "<A-j>", "<C-w>j", { desc = "switch window down" })
+map("n", "<A-k>", "<C-w>k", { desc = "switch window up" })
+
 -- Telescope
 map("n", "<leader>fW", require("telescope.builtin").resume, {
 	noremap = true,

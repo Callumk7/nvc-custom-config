@@ -26,10 +26,6 @@ M.ui = {
 	telescope = {
 		style = "bordered",
 	},
-    tabufline = {
-        enabled = true,
-        lazyload = false
-    }
 }
 
 return M

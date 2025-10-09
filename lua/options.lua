@@ -33,8 +33,6 @@ vim.api.nvim_create_autocmd("VimEnter", {
 	end,
 })
 
-opt.showtabline = 0
-
 --snippets
 require("luasnip.loaders.from_vscode").lazy_load { paths = "~/.config/nvim/snippets" }
 
@@ -71,45 +69,81 @@ autocmd({ "BufNewFile", "BufRead" }, {
 
 -- Restore cursor position on open
 autocmd("BufReadPost", {
-  pattern = "*",
-  callback = function()
-    local line = vim.fn.line "'\""
-    if
-      line > 1
-      and line <= vim.fn.line "$"
-      and vim.bo.filetype ~= "commit"
-      and vim.fn.index({ "xxd", "gitrebase" }, vim.bo.filetype) == -1
-    then
-      vim.cmd 'normal! g`"'
-    end
-  end,
+	pattern = "*",
+	callback = function()
+		local line = vim.fn.line "'\""
+		if
+			line > 1
+			and line <= vim.fn.line "$"
+			and vim.bo.filetype ~= "commit"
+			and vim.fn.index({ "xxd", "gitrebase" }, vim.bo.filetype) == -1
+		then
+			vim.cmd 'normal! g`"'
+		end
+	end,
 })
 
 -- Autlolocking zellij
 local function zellij(mode)
-  vim.schedule(function()
-    if vim.env.ZELLIJ ~= nil then
-      vim.fn.system({ "zellij", "action", "switch-mode", mode })
-    end
-  end)
+	vim.schedule(function()
+		if vim.env.ZELLIJ ~= nil then
+			vim.fn.system { "zellij", "action", "switch-mode", mode }
+		end
+	end)
 end
 
 autocmd({ "FocusGained", "BufEnter" }, {
-  group = vim.api.nvim_create_augroup("zellij_lock", {}),
-  callback = function()
-    zellij("locked")
-  end,
+	group = vim.api.nvim_create_augroup("zellij_lock", {}),
+	callback = function()
+		zellij "locked"
+	end,
 })
 
 autocmd({ "FocusLost", "VimLeave" }, {
-  group = vim.api.nvim_create_augroup("zellij_normal", {}),
-  callback = function()
-    zellij("normal")
-  end,
+	group = vim.api.nvim_create_augroup("zellij_normal", {}),
+	callback = function()
+		zellij "normal"
+	end,
 })
 
 autocmd("FileType", {
 	desc = "Automatically Split help Buffers to the right",
 	pattern = "help",
 	command = "wincmd L",
+})
+
+-- Swap Ctrl and Alt keys
+vim.schedule(function()
+	local modes = { "n", "v", "i", "s", "x", "o" }
+
+	-- Loop through all lowercase letters a-z
+	for char_code = 97, 122 do
+		local char = string.char(char_code)
+
+		-- Map <A-char> to <C-char>
+		-- e.g., when you press Alt-x, Neovim will execute the Ctrl-x behavior
+		vim.keymap.set(
+			modes,
+			"<A-" .. char .. ">",
+			"<C-" .. char .. ">",
+			{ noremap = true, silent = true, desc = "Swap Alt-key with Ctrl-key" }
+		)
+
+		-- Map <C-char> to <A-char>
+		-- e.g., when you press Ctrl-x, Neovim will execute the Alt-x behavior
+		vim.keymap.set(
+			modes,
+			"<C-" .. char .. ">",
+			"<A-" .. char .. ">",
+			{ noremap = true, silent = true, desc = "Swap Ctrl-key with Alt-key" }
+		)
+	end
+end)
+
+autocmd("FileType", {
+	pattern = "qf",
+	callback = function()
+		-- Remap <Enter> in normal mode to open the item under the cursor and close the quickfix window
+		vim.keymap.set("n", "<CR>", "<CR>", { buffer = true, nowait = true })
+	end,
 })
