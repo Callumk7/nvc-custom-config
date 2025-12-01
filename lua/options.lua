@@ -113,32 +113,32 @@ autocmd("FileType", {
 })
 
 -- Swap Ctrl and Alt keys
-vim.schedule(function()
-	local modes = { "n", "v", "i", "s", "x", "o" }
-
-	-- Loop through all lowercase letters a-z
-	for char_code = 97, 122 do
-		local char = string.char(char_code)
-
-		-- Map <A-char> to <C-char>
-		-- e.g., when you press Alt-x, Neovim will execute the Ctrl-x behavior
-		vim.keymap.set(
-			modes,
-			"<A-" .. char .. ">",
-			"<C-" .. char .. ">",
-			{ noremap = true, silent = true, desc = "Swap Alt-key with Ctrl-key" }
-		)
-
-		-- Map <C-char> to <A-char>
-		-- e.g., when you press Ctrl-x, Neovim will execute the Alt-x behavior
-		vim.keymap.set(
-			modes,
-			"<C-" .. char .. ">",
-			"<A-" .. char .. ">",
-			{ noremap = true, silent = true, desc = "Swap Ctrl-key with Alt-key" }
-		)
-	end
-end)
+-- vim.schedule(function()
+-- 	local modes = { "n", "v", "i", "s", "x", "o" }
+--
+-- 	-- Loop through all lowercase letters a-z
+-- 	for char_code = 97, 122 do
+-- 		local char = string.char(char_code)
+--
+-- 		-- Map <A-char> to <C-char>
+-- 		-- e.g., when you press Alt-x, Neovim will execute the Ctrl-x behavior
+-- 		vim.keymap.set(
+-- 			modes,
+-- 			"<A-" .. char .. ">",
+-- 			"<C-" .. char .. ">",
+-- 			{ noremap = true, silent = true, desc = "Swap Alt-key with Ctrl-key" }
+-- 		)
+--
+-- 		-- Map <C-char> to <A-char>
+-- 		-- e.g., when you press Ctrl-x, Neovim will execute the Alt-x behavior
+-- 		vim.keymap.set(
+-- 			modes,
+-- 			"<C-" .. char .. ">",
+-- 			"<A-" .. char .. ">",
+-- 			{ noremap = true, silent = true, desc = "Swap Ctrl-key with Alt-key" }
+-- 		)
+-- 	end
+-- end)
 
 autocmd("FileType", {
 	pattern = "qf",
