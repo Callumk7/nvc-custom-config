@@ -118,6 +118,8 @@ map("n", "<leader>tb", "<cmd>Gitsigns toggle_current_line_blame<CR>")
 map("n", "<leader>hd", "<cmd>Gitsigns diffthis<CR>")
 map("n", "<leader>hD", '<cmd>lua require"gitsigns".diffthis("~")<CR>')
 map("n", "<leader>td", "<cmd>Gitsigns toggle_deleted<CR>")
+map("n", "]c", "<cmd>Gitsigns next_hunk<CR>")
+map("n", "[c", "<cmd>Gitsigns prev_hunk<CR>")
 
 -- arrow mappings
 map("n", "H", require("arrow.persist").previous)
@@ -130,3 +132,18 @@ map("n", "<leader><leader>gi", "<cmd>Octo issue create<CR>")
 -- Remove plugin keymaps etc..
 del("n", "<leader>x")
 del("n", "<leader>h")
+
+-- Plugin development
+map("n", "<leader>R", function()
+	-- Clear the module cache for your plugin
+	for name, _ in pairs(package.loaded) do
+		if name:match "^double-slash" then
+			package.loaded[name] = nil
+		end
+	end
+
+	-- Re-source the plugin
+	require("double-slash").setup()
+
+	print "Reloaded double-slash"
+end, { desc = "Reload double-slash" })
