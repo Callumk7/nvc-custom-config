@@ -96,7 +96,7 @@ return {
 		config = function()
 			require("supermaven-nvim").setup {
 				keymaps = {
-					accept_suggestion = "<A-CR>",
+					accept_suggestion = "<C-CR>",
 				},
 				ignore_filetypes = { "markdown" },
 			}
