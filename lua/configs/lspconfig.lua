@@ -130,5 +130,5 @@ lspconfig.elixirls.setup {
 	on_attach = on_attach,
 	on_init = on_init,
 	capabilities = capabilities,
-	cmd = { "/home/callum/.local/share/nvim/mason/packages/elixir-ls/language_server.sh" },
+	cmd = { "/Users/callumkloos/.local/share/nvim/mason/packages/elixir-ls/language_server.sh" },
 }
