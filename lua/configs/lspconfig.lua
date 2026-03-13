@@ -1,8 +1,7 @@
-local on_attach = require("nvchad.configs.lspconfig").on_attach
-local on_init = require("nvchad.configs.lspconfig").on_init
-local capabilities = require("nvchad.configs.lspconfig").capabilities
+local pnpm_root = vim.fn.system("pnpm root -g"):gsub("\n", "")
+local vue_language_server_path = pnpm_root .. "/@vue/language-server"
 
-local lspconfig = require "lspconfig"
+-- servers with default config
 local servers = {
 	"html",
 	"cssls",
@@ -19,47 +18,28 @@ local servers = {
 	"ruby_lsp",
 	"rust_analyzer",
 }
-local root_pattern = lspconfig.util.root_pattern
-
-local pnpm_root = vim.fn.system("pnpm root -g"):gsub("\n", "")
-local vue_language_server_path = pnpm_root .. "/@vue/language-server"
-
--- lsps with default config
-for _, lsp in ipairs(servers) do
-	lspconfig[lsp].setup {
-		on_attach = on_attach,
-		on_init = on_init,
-		capabilities = capabilities,
-	}
-end
-
-local vue_plugin = {
-	name = "@vue/typescript-plugin",
-	location = vue_language_server_path,
-	languages = { "vue" },
-	configNamespace = "typescript",
-}
+vim.lsp.enable(servers)
 
 -- typescript
-lspconfig.ts_ls.setup {
+vim.lsp.config("ts_ls", {
 	init_options = {
 		plugins = {
-			vue_plugin,
+			{
+				name = "@vue/typescript-plugin",
+				location = vue_language_server_path,
+				languages = { "vue" },
+				configNamespace = "typescript",
+			},
 		},
 	},
-	on_attach = on_attach,
-	on_init = on_init,
-	capabilities = capabilities,
-	root_dir = root_pattern "package.json",
-	single_file_support = false,
+	root_markers = { "package.json" },
+	workspace_required = true,
 	filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
-}
-
-vim.lsp.enable "vue_ls"
+})
 
 -- tailwindcss
-lspconfig.tailwindcss.setup {
-	root_dir = lspconfig.util.root_pattern("package.json", "mix.exs", ".git"),
+vim.lsp.config("tailwindcss", {
+	root_markers = { "package.json", "mix.exs", ".git" },
 	filetypes = {
 		"html",
 		"heex",
@@ -84,51 +64,44 @@ lspconfig.tailwindcss.setup {
 			includeLanguages = { heex = "html", eelixir = "html" },
 		},
 	},
-}
+})
 
-lspconfig.biome.setup {
-	on_attach = on_attach,
-	capabilities = capabilities,
-	root_dir = root_pattern "biome.json",
-	single_file_support = false,
-}
-vim.lsp.enable "biome"
+-- biome
+vim.lsp.config("biome", {
+	root_markers = { "biome.json" },
+	workspace_required = true,
+})
 
--- Deno should only trigger with deno root file
-lspconfig.denols.setup {
-	on_attach = on_attach,
-	capabilities = capabilities,
-	root_dir = root_pattern "deno.json",
-	single_file_support = false,
+-- deno (should only trigger with deno root file)
+vim.lsp.config("denols", {
+	root_markers = { "deno.json" },
+	workspace_required = true,
 	cmd_env = { NO_COLOR = false },
-}
+})
 
--- lspconfig.marksman.setup {
--- 	on_attach = on_attach,
--- 	capabilities = capabilities,
--- 	on_init = on_init,
--- 	filetypes = { "markdown" },
--- }
-
-lspconfig.omnisharp.setup {
-	capabilities = capabilities,
+-- omnisharp
+vim.lsp.config("omnisharp", {
 	cmd = { "dotnet", vim.fn.stdpath "data" .. "/mason/packages/omnisharp/libexec/OmniSharp.dll" },
-	enable_import_completion = true,
-	organize_imports_on_format = true,
-	enable_roslyn_analyzers = true,
-	root_dir = function()
-		return vim.loop.cwd() -- current working directory
-	end,
-}
+	settings = {
+		FormattingOptions = {
+			EnableEditorConfigSupport = true,
+			OrganizeImports = true,
+		},
+		RoslynExtensionsOptions = {
+			EnableAnalyzersSupport = true,
+			EnableImportCompletion = true,
+		},
+	},
+})
+
+-- elixir
+vim.lsp.config("elixirls", {
+	cmd = { "/Users/callumkloos/.local/share/nvim/mason/packages/elixir-ls/language_server.sh" },
+})
+
+-- enable all custom servers
+vim.lsp.enable { "ts_ls", "vue_ls", "tailwindcss", "biome", "denols", "omnisharp", "elixirls" }
 
 -- Deno has some stupid semantic token highlighting built into
 -- the LSP, so we need to lower the priority of that
 vim.highlight.priorities.semantic_tokens = 95
-
--- Elixir
-lspconfig.elixirls.setup {
-	on_attach = on_attach,
-	on_init = on_init,
-	capabilities = capabilities,
-	cmd = { "/Users/callumkloos/.local/share/nvim/mason/packages/elixir-ls/language_server.sh" },
-}
