@@ -17,6 +17,10 @@ map("n", "<leader><leader>t", function()
 	require("base46").toggle_transparency()
 end)
 
+-- Do not keep pasted lines
+map("x", "p", '"_dP')
+map("x", "P", '"_dP')
+
 -- Improvements to document navigation
 map("n", "<C-d>", "<C-d>zz", { desc = "scroll down" })
 map("n", "<C-u>", "<C-u>zz", { desc = "scroll up" })
