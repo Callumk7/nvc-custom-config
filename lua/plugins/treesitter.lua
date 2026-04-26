@@ -11,11 +11,33 @@ return {
 		-- Install parsers if missing
 		local installed = require("nvim-treesitter.config").get_installed()
 		local ensure = {
-			"bash", "c", "diff", "html", "css", "javascript", "jsdoc",
-			"json", "lua", "luadoc", "luap", "markdown",
-			"markdown_inline", "printf", "python", "query", "regex",
-			"toml", "tsx", "typescript", "vim", "vimdoc", "xml", "yaml",
-            "styled"
+			"bash",
+			"c",
+			"diff",
+			"html",
+			"css",
+			"javascript",
+			"jsdoc",
+			"json",
+			"lua",
+			"luadoc",
+			"luap",
+			"markdown",
+			"markdown_inline",
+			"printf",
+			"python",
+			"query",
+			"regex",
+			"toml",
+			"tsx",
+			"typescript",
+			"vim",
+			"vimdoc",
+			"xml",
+			"yaml",
+			"styled",
+			"elixir",
+			"astro",
 		}
 		local to_install = vim.tbl_filter(function(lang)
 			return not vim.tbl_contains(installed, lang)

@@ -103,4 +103,8 @@ return {
 		end,
 		event = "BufEnter",
 	},
+	{
+		"sindrets/diffview.nvim",
+		cmd = { "DiffviewOpen", "DiffviewFileHistory" },
+	},
 }

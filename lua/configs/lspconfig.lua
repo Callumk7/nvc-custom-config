@@ -64,6 +64,9 @@ vim.lsp.config("tailwindcss", {
 			includeLanguages = { heex = "html", eelixir = "html" },
 		},
 	},
+	on_attach = function(_, bufnr)
+		vim.lsp.document_color.enable(false, { bufnr = bufnr })
+	end,
 })
 
 -- biome
