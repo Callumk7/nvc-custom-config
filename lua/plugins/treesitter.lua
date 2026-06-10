@@ -38,6 +38,7 @@ return {
 			"styled",
 			"elixir",
 			"astro",
+			"java",
 		}
 		local to_install = vim.tbl_filter(function(lang)
 			return not vim.tbl_contains(installed, lang)

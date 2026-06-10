@@ -17,6 +17,7 @@ local servers = {
 	"taplo",
 	"ruby_lsp",
 	"rust_analyzer",
+	"jdtls",
 }
 vim.lsp.enable(servers)
 
