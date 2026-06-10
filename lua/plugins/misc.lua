@@ -92,18 +92,6 @@ return {
 		opts = {},
 	},
 	{
-		"supermaven-inc/supermaven-nvim",
-		config = function()
-			require("supermaven-nvim").setup {
-				keymaps = {
-					accept_suggestion = "<C-CR>",
-				},
-				ignore_filetypes = { "markdown" },
-			}
-		end,
-		event = "BufEnter",
-	},
-	{
 		"sindrets/diffview.nvim",
 		cmd = { "DiffviewOpen", "DiffviewFileHistory" },
 	},
