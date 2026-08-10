@@ -26,6 +26,7 @@ return {
 			"markdown_inline",
 			"printf",
 			"python",
+			"prisma",
 			"query",
 			"regex",
 			"toml",
@@ -39,6 +40,7 @@ return {
 			"elixir",
 			"astro",
 			"java",
+			"vue",
 		}
 		local to_install = vim.tbl_filter(function(lang)
 			return not vim.tbl_contains(installed, lang)
